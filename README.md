@@ -6,13 +6,21 @@ Live list: <https://i-machine-things.github.io/freecad-addons/>
 
 ## Use it
 
-In FreeCAD, open the Python console (View, Panels, Python console), paste this line and restart FreeCAD:
+Add this repository to the Addon Manager once, and it lists every addon below:
+
+1. In the Addon Manager's settings, under **Custom repositories**, add `https://github.com/i-machine-things/freecad-addons` with branch `main`.
+2. Close the settings. The Addon Manager now lists **i-machine-things addons** (FreeCAD 1.1 shows it as **freecad-addons**). Install it.
+3. Restart FreeCAD.
+
+Installing it points the Addon Manager at this catalog: its `Init.py` sets the catalog address when FreeCAD starts. The Addon Manager's settings have no field for that address.
+
+Or set the address yourself instead: open the Python console (View, Panels, Python console), paste this line and restart FreeCAD:
 
 ```python
 FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Addons").SetString("addon_catalog_cache_url", "https://i-machine-things.github.io/freecad-addons/addon_catalog_cache.zip")
 ```
 
-To go back to only the official catalog:
+To go back to only the official catalog, uninstall **i-machine-things addons** if you installed it, then paste this line and restart FreeCAD:
 
 ```python
 FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Addons").RemString("addon_catalog_cache_url")
