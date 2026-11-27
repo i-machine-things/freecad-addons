@@ -1,0 +1,68 @@
+{
+  "official_catalog": "https://addons.freecad.org/addon_catalog_cache.zip",
+  "site": "https://i-machine-things.github.io/freecad-addons/",
+  "tag": "i-machine-things",
+  "hide": {
+    "Estimate": "The original of estimateWB. Both install the same freecad.estimateWB Python package, so FreeCAD can only load one of them."
+  },
+  "sections": [
+    {
+      "id": "released",
+      "title": "Released",
+      "addons": {
+        "estimateWB": {
+          "name": "estimateWB (fork)",
+          "repository": "https://github.com/i-machine-things/estimateWB",
+          "git_ref": "custom"
+        }
+      }
+    },
+    {
+      "id": "wip",
+      "title": "Work in progress",
+      "tag": "wip",
+      "name_suffix": " (WIP)",
+      "addons": {
+        "freecad-cam-studio": {
+          "name": "CAM Studio",
+          "repository": "https://github.com/i-machine-things/freecad-cam-studio",
+          "git_ref": "master"
+        },
+        "Weld": {
+          "name": "Weld",
+          "repository": "https://github.com/i-machine-things/freecad-weld",
+          "git_ref": "master",
+          "icon": "Resources/icons/Weld.svg"
+        },
+        "DXFExportUnits": {
+          "name": "DXF Export Units",
+          "repository": "https://github.com/i-machine-things/DXFExportUnits",
+          "git_ref": "main",
+          "package_xml": "metadata/DXFExportUnits.xml",
+          "freecad_min": "1.1.3"
+        }
+      }
+    },
+    {
+      "id": "used",
+      "title": "Not mine, but I use them",
+      "addons": {
+        "PimpMyFreeCAD": {
+          "name": "Pimp My FreeCAD",
+          "repository": "https://github.com/sedatkrn/PimpMyFreeCAD",
+          "git_ref": "main"
+        },
+        "LiveSectionAnalyzer": {
+          "name": "LiveSectionAnalyzer",
+          "official": true
+        },
+        "FreeCAD-Lathe-Workbench": {
+          "name": "Lathe CAM",
+          "repository": "https://github.com/Maurone76/FreeCAD-Lathe-Workbench",
+          "git_ref": "main",
+          "package_xml": "metadata/FreeCAD-Lathe-Workbench.xml"
+        }
+      }
+    }
+  ]
+}

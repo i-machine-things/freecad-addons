@@ -1,0 +1,97 @@
+name: Publish catalog
+
+# Builds the catalog from FreeCAD's official catalog plus addons.json and publishes it to GitHub
+# Pages. Runs hourly, so new commits in a listed addon reach the Addon Manager within the hour.
+#
+# Nothing is published unless the repository variable PUBLISH is "true", and a manual run is a
+# rehearsal unless "rehearse" is unticked. A rehearsal builds the catalog and keeps it as the
+# run's "catalog" artifact without publishing it.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+    inputs:
+      rehearse:
+        description: "Rehearse: build and keep the catalog as an artifact, don't publish it"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  SITE: https://i-machine-things.github.io/freecad-addons
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      publish: ${{ steps.decide.outputs.publish }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check README.md's addon list
+        run: python3 build.py --check-readme
+
+      - name: Build the catalog
+        run: python3 build.py --out dist
+
+      - name: Decide whether to publish
+        id: decide
+        env:
+          EVENT: ${{ github.event_name }}
+          REHEARSE: ${{ inputs.rehearse }}
+          PUBLISH_VAR: ${{ vars.PUBLISH }}
+        run: |
+          built=$(cat dist/addon_catalog_cache.zip.sha256)
+          published=$(curl -sfL "$SITE/addon_catalog_cache.zip.sha256" || true)
+          publish=true
+          reason="new catalog"
+          if [ "$PUBLISH_VAR" != "true" ]; then
+            publish=false; reason="the PUBLISH repository variable is not \"true\""
+          elif [ "$EVENT" = "workflow_dispatch" ] && [ "$REHEARSE" = "true" ]; then
+            publish=false; reason="rehearsal"
+          elif [ "$EVENT" = "schedule" ] && [ "$built" = "$published" ]; then
+            publish=false; reason="unchanged since the last publish"
+          fi
+          echo "publish=$publish" >> "$GITHUB_OUTPUT"
+          {
+            echo "### Catalog"
+            echo ""
+            echo "- Built: \`$built\`"
+            echo "- Published now: \`${published:-nothing yet}\`"
+            echo "- Publish this build: **$publish** ($reason)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the build
+        uses: actions/upload-artifact@v7
+        with:
+          name: catalog
+          path: dist
+
+      - name: Upload for GitHub Pages
+        if: steps.decide.outputs.publish == 'true'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.publish == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
