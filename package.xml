@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package format="1" xmlns="https://wiki.freecad.org/Package_Metadata">
+  <name>i-machine-things addons</name>
+  <description>Adds Allan's addons to the Addon Manager, next to FreeCAD's official ones: estimateWB, CAM Studio, Weld, DXF Export Units and the other addons he uses. Install it and restart FreeCAD.</description>
+  <version>1.0.0</version>
+  <date>2026-11-27</date>
+  <maintainer email="allann2020@gmail.com">Allan Noble</maintainer>
+  <license file="LICENSE">LGPL-2.1-or-later</license>
+  <url type="repository" branch="main">https://github.com/i-machine-things/freecad-addons</url>
+  <url type="bugtracker">https://github.com/i-machine-things/freecad-addons/issues</url>
+  <url type="readme">https://github.com/i-machine-things/freecad-addons/raw/main/README.md</url>
+  <icon>Resources/icons/catalog.svg</icon>
+  <freecadmin>1.1.0</freecadmin>
+  <tag>i-machine-things</tag>
+  <tag>addon manager</tag>
+  <content>
+    <!-- FreeCAD 1.1 runs an addon's Init.py only for its workbench entries, so the catalog switch
+         is listed as one. It adds no workbench: there is no InitGui.py. -->
+    <workbench>
+      <name>i-machine-things addons</name>
+      <subdirectory>./</subdirectory>
+    </workbench>
+  </content>
+</package>
