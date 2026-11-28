@@ -47,6 +47,7 @@ If one of these addons is set up as a custom repository in the Addon Manager's s
 | CAM Studio | `Mod/freecad-cam-studio` | [i-machine-things/freecad-cam-studio](https://github.com/i-machine-things/freecad-cam-studio) `master` |
 | Weld | `Mod/Weld` | [i-machine-things/freecad-weld](https://github.com/i-machine-things/freecad-weld) `master` |
 | DXF Export Units | `Mod/DXFExportUnits` | [i-machine-things/DXFExportUnits](https://github.com/i-machine-things/DXFExportUnits) `main` |
+| In-process Stock | `Mod/freecad-inprocess-stock` | [i-machine-things/freecad-inprocess-stock](https://github.com/i-machine-things/freecad-inprocess-stock) `main` |
 
 ### Not mine, but I use them
 
