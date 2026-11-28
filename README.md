@@ -41,15 +41,14 @@ An addon with versions in the FreeCAD column only shows in the Addon Manager of 
 | Addon | Installs as | Source | FreeCAD |
 |---|---|---|---|
 | estimateWB (fork) | `Mod/estimateWB` | [i-machine-things/estimateWB](https://github.com/i-machine-things/estimateWB) `custom` |  |
+| In-process Stock | `Mod/freecad-inprocess-stock` | [i-machine-things/freecad-inprocess-stock](https://github.com/i-machine-things/freecad-inprocess-stock) `main` | 26.3.0 and later |
 
 ### Work in progress
 
 | Addon | Installs as | Source | FreeCAD |
 |---|---|---|---|
-| CAM Studio | `Mod/freecad-cam-studio` | [i-machine-things/freecad-cam-studio](https://github.com/i-machine-things/freecad-cam-studio) `master` |  |
 | Weld | `Mod/Weld` | [i-machine-things/freecad-weld](https://github.com/i-machine-things/freecad-weld) `master` |  |
 | DXF Export Units | `Mod/DXFExportUnits` | [i-machine-things/DXFExportUnits](https://github.com/i-machine-things/DXFExportUnits) `main` | 1.1.3 and later |
-| In-process Stock | `Mod/freecad-inprocess-stock` | [i-machine-things/freecad-inprocess-stock](https://github.com/i-machine-things/freecad-inprocess-stock) `main` | 26.3.0 and later |
 
 ### Not mine, but I use them
 
