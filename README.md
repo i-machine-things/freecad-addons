@@ -32,29 +32,32 @@ If one of these addons is set up as a custom repository in the Addon Manager's s
 
 ## Addons
 
+An addon with versions in the FreeCAD column only shows in the Addon Manager of those FreeCAD versions.
+
 <!-- addons:start -->
 
 ### Released
 
-| Addon | Installs as | Source |
-|---|---|---|
-| estimateWB (fork) | `Mod/estimateWB` | [i-machine-things/estimateWB](https://github.com/i-machine-things/estimateWB) `custom` |
+| Addon | Installs as | Source | FreeCAD |
+|---|---|---|---|
+| estimateWB (fork) | `Mod/estimateWB` | [i-machine-things/estimateWB](https://github.com/i-machine-things/estimateWB) `custom` |  |
 
 ### Work in progress
 
-| Addon | Installs as | Source |
-|---|---|---|
-| CAM Studio | `Mod/freecad-cam-studio` | [i-machine-things/freecad-cam-studio](https://github.com/i-machine-things/freecad-cam-studio) `master` |
-| Weld | `Mod/Weld` | [i-machine-things/freecad-weld](https://github.com/i-machine-things/freecad-weld) `master` |
-| DXF Export Units | `Mod/DXFExportUnits` | [i-machine-things/DXFExportUnits](https://github.com/i-machine-things/DXFExportUnits) `main` |
+| Addon | Installs as | Source | FreeCAD |
+|---|---|---|---|
+| CAM Studio | `Mod/freecad-cam-studio` | [i-machine-things/freecad-cam-studio](https://github.com/i-machine-things/freecad-cam-studio) `master` |  |
+| Weld | `Mod/Weld` | [i-machine-things/freecad-weld](https://github.com/i-machine-things/freecad-weld) `master` |  |
+| DXF Export Units | `Mod/DXFExportUnits` | [i-machine-things/DXFExportUnits](https://github.com/i-machine-things/DXFExportUnits) `main` | 1.1.3 and later |
+| In-process Stock | `Mod/freecad-inprocess-stock` | [i-machine-things/freecad-inprocess-stock](https://github.com/i-machine-things/freecad-inprocess-stock) `main` | 26.3.0 and later |
 
 ### Not mine, but I use them
 
-| Addon | Installs as | Source |
-|---|---|---|
-| Pimp My FreeCAD | `Mod/PimpMyFreeCAD` | [sedatkrn/PimpMyFreeCAD](https://github.com/sedatkrn/PimpMyFreeCAD) `main` |
-| LiveSectionAnalyzer | `Mod/LiveSectionAnalyzer` | FreeCAD's official catalog |
-| Lathe CAM | `Mod/FreeCAD-Lathe-Workbench` | [Maurone76/FreeCAD-Lathe-Workbench](https://github.com/Maurone76/FreeCAD-Lathe-Workbench) `main` |
+| Addon | Installs as | Source | FreeCAD |
+|---|---|---|---|
+| Pimp My FreeCAD | `Mod/PimpMyFreeCAD` | [sedatkrn/PimpMyFreeCAD](https://github.com/sedatkrn/PimpMyFreeCAD) `main` |  |
+| LiveSectionAnalyzer | `Mod/LiveSectionAnalyzer` | FreeCAD's official catalog |  |
+| Lathe CAM | `Mod/FreeCAD-Lathe-Workbench` | [Maurone76/FreeCAD-Lathe-Workbench](https://github.com/Maurone76/FreeCAD-Lathe-Workbench) `main` |  |
 
 ### Left out of the official catalog
 
