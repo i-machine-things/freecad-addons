@@ -23,11 +23,6 @@
       "tag": "wip",
       "name_suffix": " (WIP)",
       "addons": {
-        "freecad-cam-studio": {
-          "name": "CAM Studio",
-          "repository": "https://github.com/i-machine-things/freecad-cam-studio",
-          "git_ref": "master"
-        },
         "Weld": {
           "name": "Weld",
           "repository": "https://github.com/i-machine-things/freecad-weld",
