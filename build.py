@@ -341,10 +341,25 @@ def build(out_dir: Path) -> None:
 # README.md and index.html
 
 
+def freecad_versions(spec: dict) -> str:
+    """The FreeCAD versions an entry is limited to, for the README ("" for no limit)."""
+    low, high = spec.get("freecad_min"), spec.get("freecad_max")
+    if low and high:
+        return f"{low} to {high}"
+    if low:
+        return f"{low} and later"
+    return f"up to {high}" if high else ""
+
+
 def readme_block(config: dict) -> str:
     lines = [README_START, ""]
     for section in config["sections"]:
-        lines += [f"### {section['title']}", "", "| Addon | Installs as | Source |", "|---|---|---|"]
+        lines += [
+            f"### {section['title']}",
+            "",
+            "| Addon | Installs as | Source | FreeCAD |",
+            "|---|---|---|---|",
+        ]
         for addon_id, spec in section["addons"].items():
             name = spec.get("name", addon_id)
             if spec.get("official"):
@@ -352,7 +367,7 @@ def readme_block(config: dict) -> str:
             else:
                 owner_repo = spec["repository"].rstrip("/").split("/", 3)[-1]
                 source = f"[{owner_repo}]({spec['repository']}) `{spec['git_ref']}`"
-            lines.append(f"| {name} | `Mod/{addon_id}` | {source} |")
+            lines.append(f"| {name} | `Mod/{addon_id}` | {source} | {freecad_versions(spec)} |")
         lines.append("")
     hidden = config.get("hide", {})
     if hidden:
